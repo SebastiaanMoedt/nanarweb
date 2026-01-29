@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Cycle } from '../../class/cycle';
+import { CyclesDbMock } from '../../mock/cycles-db-mock';
 
 @Component({
   selector: 'app-cycles',
@@ -8,4 +10,7 @@ import { Component } from '@angular/core';
 })
 export class Cycles {
 
+  getCycles(){
+    const cycles: Cycle[] = CyclesDbMock.getAllCycles()
+  }
 }
