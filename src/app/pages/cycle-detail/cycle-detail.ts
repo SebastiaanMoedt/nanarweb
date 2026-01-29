@@ -8,10 +8,10 @@ import { CycleDetailMock } from '../../mock/cycle-detail-mock';
   styleUrl: './cycle-detail.css',
 })
 
-const cycleDetailMock = new CycleDetailMock
 
-export class CycleDetail {
-  getCycle(id: number){
+export class CycleDetail {}
+  const cycleDetailMock = new CycleDetailMock
+  
+function getCycle(id: number){
   cycleDetailMock.getAllFilmsInCycle(id)
-}
-}
+};
