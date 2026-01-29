@@ -11,11 +11,13 @@ import { Search } from './pages/search/search';
 export const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: 'home', component: Home},
-    { path: '**', component: NotFound},
     { path: 'cycles', component: Cycles},
     { path: 'cycle-detail', component: CycleDetail},
     { path: 'cycle-add', component: CycleAdd},
     { path: 'film-detail', component: FilmDetail},
     { path: 'film-add', component: FilmAdd},
-    { path: 'search', component: Search}
+    { path: 'search', component: Search},
+    
+    // ALWAYS LAST
+    { path: '**', component: NotFound}
 ];
