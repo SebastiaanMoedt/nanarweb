@@ -25,4 +25,15 @@ cycles: Cycle[] = [this.cycle1, this.cycle2]
 getAllCycles(){
   return this.cycles
 }
-}
+
+getCycle(id: number)
+{
+  this.cycles.forEach(cycle => 
+    {
+    if(cycle.cycleId == id)
+      {
+      return cycle
+      }
+    return null
+    })
+}}

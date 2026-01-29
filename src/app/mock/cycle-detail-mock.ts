@@ -11,11 +11,11 @@ export class CycleDetailMock {
   filmsDbMock = new FilmsDbMock
   
 
-  getAllFilmsInCycle(cycle: Cycle){
+  getAllFilmsInCycle(id: number){
     let filmsInCycle: Film[] = []
     const films = this.filmsDbMock.getAllFilms()
     films.forEach(film => {
-      if(film.cycles.includes(cycle.cycleId)){
+      if(film.cycles.includes(id)){
         filmsInCycle.push(film)
       }
       })

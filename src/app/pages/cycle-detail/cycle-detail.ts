@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CycleDetailMock } from '../../mock/cycle-detail-mock';
 
 @Component({
   selector: 'app-cycle-detail',
@@ -6,6 +7,11 @@ import { Component } from '@angular/core';
   templateUrl: './cycle-detail.html',
   styleUrl: './cycle-detail.css',
 })
-export class CycleDetail {
 
+const cycleDetailMock = new CycleDetailMock
+
+export class CycleDetail {
+  getCycle(id: number){
+  cycleDetailMock.getAllFilmsInCycle(id)
+}
 }
