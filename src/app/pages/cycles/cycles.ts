@@ -9,8 +9,9 @@ import { CyclesDbMock } from '../../mock/cycles-db-mock';
   styleUrl: './cycles.css',
 })
 export class Cycles {
+  cyclesDbMock = new CyclesDbMock()
 
   getCycles(){
-    const cycles: Cycle[] = CyclesDbMock.getAllCycles()
+    return this.cyclesDbMock.getAllCycles()
   }
 }

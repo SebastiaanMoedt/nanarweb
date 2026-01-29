@@ -5,8 +5,8 @@ import { Film } from '../class/film';
 @Injectable({
   providedIn: 'root',
 })
-export class FilmsDbMock {}
-    const film1: Film = {
+export class FilmsDbMock {
+film1: Film = {
         title: "Film1",
         year: 2020,
         length: 100,
@@ -14,9 +14,9 @@ export class FilmsDbMock {}
         subsPath: "",
         specialInfo: "c'est un film",
         filmState: FilmState.TO_WATCH,
-        cycles: []
+        cycles: [1, 2]
     }
-    const film2: Film = {
+film2: Film = {
         title: "Film2",
         year: 2021,
         length: 102,
@@ -24,7 +24,12 @@ export class FilmsDbMock {}
         subsPath: "",
         specialInfo: "c'est un autre film",
         filmState: FilmState.TO_WATCH,
-        cycles: []
+        cycles: [2]
     }
-    
-    let films = [film1, film2]
+    films = [this.film1, this.film2]
+
+    getAllFilms(){
+        return this.films
+    }
+}
+

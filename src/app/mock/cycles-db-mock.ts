@@ -8,11 +8,13 @@ import { CycleState } from '../class/enum/cycle-state';
 })
 export class CyclesDbMock {
 cycle1: Cycle = {
+      cycleId: 1,
       cycleName: "test",
       description: "wow un cycle",
       status: CycleState.READY,
       films: []}
 cycle2: Cycle = {
+        cycleId: 2,
         cycleName: "test2",
         description: "wow un autre cycle",
         status: CycleState.READY,

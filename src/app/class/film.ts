@@ -9,6 +9,6 @@ export class Film {
     subsPath!: String
     specialInfo!: String
     filmState!: FilmState
-    cycles!: Cycle[]
+    cycles!: number[]
 }
 
