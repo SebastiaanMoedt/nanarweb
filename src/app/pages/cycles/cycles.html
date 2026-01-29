@@ -1,1 +1,8 @@
 <p>UNE LISTE DE FILMS DANS UN THEME FORT CHELOU</p>
+
+@for(cycle of getCycles(); track cycle.cycleName){
+    <li >{{cycle.cycleName}}</li>
+}
+@empty {
+    <li>PAS DE CYCLES POUR L'INSTANT</li>
+}
