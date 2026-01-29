@@ -15,9 +15,9 @@ export class CycleDetailMock {
     let filmsInCycle: Film[] = []
     const films = this.filmsDbMock.getAllFilms()
     films.forEach(film => {
-      if(film.cycles.includes(cycle.cycleId){
+      if(film.cycles.includes(cycle.cycleId)){
         filmsInCycle.push(film)
-      })
+      }
       })
 
   }
