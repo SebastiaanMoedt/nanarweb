@@ -1,1 +1,7 @@
-<p>détail cycle</p>
+@for(film of listeFilms; track film.year){
+    <br>
+    <li>{{film.year}} - {{film.title}}</li>
+}
+@empty {
+    <li>PAS DE CYCLES POUR L'INSTANT</li>
+}

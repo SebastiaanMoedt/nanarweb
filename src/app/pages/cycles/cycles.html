@@ -1,7 +1,7 @@
 
 @for(cycle of getCycles(); track cycle.cycleName){
     <br>
-    <a routerLink="/cycle/{{cycle.cycleId}}">{{cycle.cycleName}} - {{cycle.description}}</a>
+    <a (click)="navigateToCycleDetail(cycle.cycleId.toString())">>{{cycle.cycleName}} - {{cycle.description}}</a>
 }
 @empty {
     <li>PAS DE CYCLES POUR L'INSTANT</li>

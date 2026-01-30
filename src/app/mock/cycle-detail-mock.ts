@@ -16,6 +16,8 @@ export class CycleDetailMock {
         filmsInCycle.push(film)
       }
       })
-
+      console.log(filmsInCycle);
+      
+    return filmsInCycle
   }
 }

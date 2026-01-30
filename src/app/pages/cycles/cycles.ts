@@ -1,8 +1,7 @@
-import { Component } from '@angular/core';
-import { Cycle } from '../../class/cycle';
+import { Component, inject } from '@angular/core';
 import { CyclesDbMock } from '../../mock/cycles-db-mock';
 import { FormsModule } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-cycles',
@@ -10,10 +9,16 @@ import { RouterLink } from '@angular/router';
   templateUrl: './cycles.html',
   styleUrl: './cycles.css',
 })
+
 export class Cycles {
   cyclesDbMock = new CyclesDbMock()
+  private readonly router = inject(Router);
 
   getCycles(){
     return this.cyclesDbMock.getAllCycles()
   }
+
+navigateToCycleDetail(id : string){
+  this.router.navigate(['/cycles/', id]);
+}
 }

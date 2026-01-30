@@ -12,7 +12,7 @@ export const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: 'home', component: Home},
     { path: 'cycles', component: Cycles},
-    { path: 'cycle-detail', component: CycleDetail},
+    { path: 'cycles/:id', component: CycleDetail},
     { path: 'cycle-add', component: CycleAdd},
     { path: 'film-detail', component: FilmDetail},
     { path: 'film-add', component: FilmAdd},
