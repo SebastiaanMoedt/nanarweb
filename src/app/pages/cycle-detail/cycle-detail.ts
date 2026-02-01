@@ -1,6 +1,8 @@
-import { Component, input, InputSignal, OnInit } from '@angular/core';
+import { Component, inject, input, InputSignal, OnInit } from '@angular/core';
 import { Film } from '../../class/film';
 import { CyclesDbMock } from '../../mock/cycles-db-mock';
+import { HttpParams } from '@angular/common/http';
+import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-cycle-detail',
   imports: [],
@@ -10,19 +12,19 @@ import { CyclesDbMock } from '../../mock/cycles-db-mock';
 
 
 
-export class CycleDetail implements OnInit{
+export class CycleDetail{
   cycleDbMock: CyclesDbMock = new CyclesDbMock
-  cycleId: string = ""
+  private router = inject(Router);
   listeFilms!: Film[]
-  
+  private route = inject(ActivatedRoute);
+  cycleId = this.route.snapshot.params['cycleId'];
+
 ngOnInit(): void {
-  
     this.listeFilms = this.getCycle(parseInt(this.cycleId));
 }
-
-  // https://angular.fr/routing/parameter-router à voir
+  // https://angular.fr/routing/parameter-router 
 
 getCycle(id: number): Film[]{
   return this.cycleDbMock.getAllFilmsInCycle(id)
-};
+}
 }
