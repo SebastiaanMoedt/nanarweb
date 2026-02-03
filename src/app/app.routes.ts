@@ -4,7 +4,6 @@ import { Home } from './pages/home/home';
 import { Cycles } from './pages/cycles/cycles';
 import { CycleDetail } from './pages/cycle-detail/cycle-detail';
 import { CycleAdd } from './pages/cycle-add/cycle-add';
-import { FilmDetail } from './pages/film-detail/film-detail';
 import { FilmAdd } from './pages/film-add/film-add';
 import { Search } from './pages/search/search';
 
@@ -14,7 +13,6 @@ export const routes: Routes = [
     { path: 'cycles', component: Cycles},
     { path: 'cycles/:cycleName', component: CycleDetail},
     { path: 'cycle-add', component: CycleAdd},
-    { path: 'film/:filmId', component: FilmDetail},
     { path: 'film-add', component: FilmAdd},
     { path: 'search', component: Search},
     
