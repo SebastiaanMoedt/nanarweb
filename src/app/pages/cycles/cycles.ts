@@ -19,8 +19,8 @@ export class Cycles {
     return this.cyclesDbMock.getAllCycles()
   }
 
-navigateToCycleDetail(id : number){
-  this.cycleDetail.cycleId = id
-  this.router.navigate(['/cycles/', id]);
+navigateToCycleDetail(name : string){
+  this.cycleDetail.cycleName = name
+  this.router.navigate(['/cycles/', name]);
 }
 }

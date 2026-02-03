@@ -1,9 +1,7 @@
 import { Component, inject, input, InputSignal, OnInit } from '@angular/core';
 import { Film } from '../../class/film';
 import { CyclesDbMock } from '../../mock/cycles-db-mock';
-import { HttpParams } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Cycle } from '../../class/cycle';
 @Component({
   selector: 'app-cycle-detail',
   imports: [],

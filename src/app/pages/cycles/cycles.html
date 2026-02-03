@@ -2,7 +2,7 @@
 @for(cycle of getCycles(); track cycle.cycleName){
     <ul>
     <!-- <li><a routerLink="['/cycle', cycle.cycleId]"> {{cycle.cycleName}} - {{cycle.description}}</a></li> -->
-    <li><a (click)="navigateToCycleDetail(cycle.cycleId)"> {{cycle.cycleName}} - {{cycle.description}}</a></li>
+    <li><a (click)="navigateToCycleDetail(cycle.cycleName)"> {{cycle.cycleName}} - {{cycle.description}}</a></li>
 </ul>
 }
 @empty {

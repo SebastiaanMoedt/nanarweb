@@ -22,6 +22,7 @@ cycle2: Cycle = {
 cycles: Cycle[] = [this.cycle1, this.cycle2]
 
 film1: Film = {
+        filmId: 1,
         title: "Film1",
         year: 2020,
         length: 100,
@@ -32,6 +33,7 @@ film1: Film = {
         cycles: [this.cycle1.cycleName, this.cycle2.cycleName]
     }
 film2: Film = {
+        filmId: 2,
         title: "Film2",
         year: 2021,
         length: 102,
@@ -42,6 +44,7 @@ film2: Film = {
         cycles: [this.cycle2.cycleName]
     }
 film3: Film = {
+        filmId: 3,
         title: "Film3",
         year: 2020,
         length: 101,
