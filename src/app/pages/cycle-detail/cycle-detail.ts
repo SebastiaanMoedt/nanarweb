@@ -18,18 +18,15 @@ export class CycleDetail{
   private router = inject(Router);
   listeFilms!: Film[]
   private route = inject(ActivatedRoute);
-  cycleId = this.route.snapshot.params['cycleId'];
+  cycleName = this.route.snapshot.params['cycleName'];
 
 ngOnInit(): void {
-    this.listeFilms = this.getCycle(parseInt(this.cycleId));
+    this.listeFilms = this.getCycle(this.cycleName);
 }
   // https://angular.fr/routing/parameter-router 
 
-getCycle(id: number): Film[]{
-  return this.cycleDbMock.getAllFilmsInCycle(id)
+getCycle(name: string): Film[]{
+  return this.cycleDbMock.getAllFilmsInCycle(name)
 }
 
-getCycleName(id: number): String{
-  return this.cycleDbMock.getCycleNameById(id)
-}
 }

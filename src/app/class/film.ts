@@ -1,13 +1,13 @@
 import { FilmState } from "./enum/film-state"
 
 export class Film {
-    title!: String
+    title!: string
     year!: number
     length!: number
-    filmPath!: String
-    subsPath!: String
-    specialInfo!: String
+    filmPath!: string
+    subsPath!: string
+    specialInfo!: string
     filmState!: FilmState
-    cycles!: number[]
+    cycles!: string[]
 }
 

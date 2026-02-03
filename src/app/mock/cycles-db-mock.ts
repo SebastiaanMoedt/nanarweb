@@ -9,13 +9,11 @@ import { FilmState } from '../class/enum/film-state';
 })
 export class CyclesDbMock {
 cycle1: Cycle = {
-      cycleId: 1,
       cycleName: "test",
       description: "wow un cycle",
       status: CycleState.READY,
       films: []}
 cycle2: Cycle = {
-        cycleId: 2,
         cycleName: "test2",
         description: "wow un autre cycle",
         status: CycleState.READY,
@@ -31,7 +29,7 @@ film1: Film = {
         subsPath: "",
         specialInfo: "c'est un film",
         filmState: FilmState.TO_WATCH,
-        cycles: [1, 2]
+        cycles: [this.cycle1.cycleName, this.cycle2.cycleName]
     }
 film2: Film = {
         title: "Film2",
@@ -41,7 +39,7 @@ film2: Film = {
         subsPath: "et là pour les soustitres",
         specialInfo: "c'est un autre film",
         filmState: FilmState.TO_WATCH,
-        cycles: [2]
+        cycles: [this.cycle2.cycleName]
     }
 film3: Film = {
         title: "Film3",
@@ -51,15 +49,15 @@ film3: Film = {
         subsPath: "",
         specialInfo: "encore un autre film",
         filmState: FilmState.TO_WATCH,
-        cycles: [2, 1]
+        cycles: [this.cycle1.cycleName, this.cycle2.cycleName]
     }    
 
 films = [this.film1, this.film2, this.film3]
 
-getAllFilmsInCycle(id: number): Array<Film>{
+getAllFilmsInCycle(cycleName: string): Array<Film>{
     let filmsInCycle: Film[] = []
     this.films.forEach(film => {
-      if(film.cycles.includes(id)){
+      if(film.cycles.includes(cycleName)){
         filmsInCycle.push(film)
       }
       })
@@ -72,10 +70,10 @@ getAllCycles(){
   return this.cycles
 }
 
-getCycle(id: number): Cycle{
+getCycle(name: string): Cycle{
   this.cycles.forEach(cycle => 
     {
-      if(cycle.cycleId == id)
+      if(cycle.cycleName == name)
       {
       return cycle
       }
@@ -84,7 +82,4 @@ getCycle(id: number): Cycle{
   return new Cycle()
 }
 
-getCycleNameById(id: number): String{
-  return this.getCycle(id).cycleName
-}
 }

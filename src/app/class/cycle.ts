@@ -2,9 +2,8 @@ import { CycleState } from "./enum/cycle-state";
 import { Film } from "./film";
 
 export class Cycle {
-    cycleId!: number
-    cycleName!: String
+    cycleName!: string
     status!: CycleState
-    description!: String
+    description!: string
     films!: Film[]
 }
