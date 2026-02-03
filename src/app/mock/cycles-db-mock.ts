@@ -56,7 +56,7 @@ film3: Film = {
 
 films = [this.film1, this.film2, this.film3]
 
-getAllFilmsInCycle(id: number){
+getAllFilmsInCycle(id: number): Array<Film>{
     let filmsInCycle: Film[] = []
     this.films.forEach(film => {
       if(film.cycles.includes(id)){
