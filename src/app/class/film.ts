@@ -1,4 +1,3 @@
-import { Cycle } from "./cycle"
 import { FilmState } from "./enum/film-state"
 
 export class Film {

@@ -72,14 +72,19 @@ getAllCycles(){
   return this.cycles
 }
 
-getCycle(id: number)
-{
+getCycle(id: number): Cycle{
   this.cycles.forEach(cycle => 
     {
-    if(cycle.cycleId == id)
+      if(cycle.cycleId == id)
       {
       return cycle
       }
-    return null
+    return new Cycle()
     })
-}}
+  return new Cycle()
+}
+
+getCycleNameById(id: number): String{
+  return this.getCycle(id).cycleName
+}
+}

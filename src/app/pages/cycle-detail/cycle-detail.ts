@@ -3,6 +3,7 @@ import { Film } from '../../class/film';
 import { CyclesDbMock } from '../../mock/cycles-db-mock';
 import { HttpParams } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Cycle } from '../../class/cycle';
 @Component({
   selector: 'app-cycle-detail',
   imports: [],
@@ -26,5 +27,9 @@ ngOnInit(): void {
 
 getCycle(id: number): Film[]{
   return this.cycleDbMock.getAllFilmsInCycle(id)
+}
+
+getCycleName(id: number): String{
+  return this.cycleDbMock.getCycleNameById(id)
 }
 }
