@@ -37,8 +37,8 @@ film2: Film = {
         title: "Film2",
         year: 2021,
         length: 102,
-        filmPath: "",
-        subsPath: "",
+        filmPath: "cliquer ici pour télécharger",
+        subsPath: "et là pour les soustitres",
         specialInfo: "c'est un autre film",
         filmState: FilmState.TO_WATCH,
         cycles: [2]

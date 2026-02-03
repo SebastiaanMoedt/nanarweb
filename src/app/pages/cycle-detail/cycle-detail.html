@@ -1,7 +1,35 @@
+<table class="uk-table">
+  <thead>
+    <tr>
+      <th scope="col">Titre</th>
+      <th scope="col">Année</th>
+      <th scope="col">Durée</th>
+      <th scope="col">Infos Spéciales</th>
+      <th scope="col">Lien</th>
+    </tr>
+  </thead>
+  <tbody>
+
+
 @for(film of listeFilms; track film.year){
-    <br>
-    <li>{{film.year}} - {{film.title}}</li>
+    <tr>
+      <th scope="row">{{film.title}}</th>
+      <td>{{film.year}}</td>
+      <td>{{film.length}}</td>
+      <td>{{film.specialInfo}}</td>
+      @if(film.filmPath != ""){
+      <td>{{film.filmPath}} - <br>
+        {{film.subsPath}}</td>
+      }
+      @else{
+        <td>À TÉLÉCHARGER</td>
+      }
+
+    </tr>
+
 }
 @empty {
     <li>I'M EMPTY :((((</li>
 }
+  </tbody>
+</table>
