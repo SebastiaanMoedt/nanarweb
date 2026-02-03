@@ -1,11 +1,11 @@
 import { CyclesDbMock } from '../../mock/cycles-db-mock';
-import { Router, RouterLink, RouterOutlet } from '@angular/router';
+import { Router } from '@angular/router';
 import { CycleDetail } from '../cycle-detail/cycle-detail';
 import { Component, inject } from '@angular/core';
 
 @Component({
   selector: 'app-cycles',
-  imports: [RouterLink],
+  imports: [],
   templateUrl: './cycles.html',
   styleUrl: './cycles.css',
 })
