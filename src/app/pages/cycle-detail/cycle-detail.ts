@@ -19,6 +19,7 @@ export class CycleDetail implements OnInit{
   private route = inject(ActivatedRoute);
   cycleName = this.route.snapshot.params['cycleName'];
   listeFilms!: Film[]
+  randomFilm!: Film
 
 ngOnInit(): void {
     this.listeFilms = this.getCycleSortedByYear(this.cycleName);
@@ -60,7 +61,7 @@ getRandomFilmFromCycle(name: string): Film{
     randomFilm = allFilms[Math.floor(Math.random() * allFilms.length)]
   }
   console.log("RANDOM FILM: " + randomFilm.title);
-  
+  this.randomFilm = randomFilm
   return randomFilm
 }
 

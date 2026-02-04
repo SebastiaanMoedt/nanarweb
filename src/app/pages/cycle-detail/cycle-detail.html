@@ -1,12 +1,11 @@
 
-<!-- POUR TRIER, PEUT ETRE UTILISER ÇA:
-  <th scope="col" sortable="title" (sort)="onSort($event)">Titre</th> -->
+  <button class="uk-button uk-button-default" 
+          (click)="getRandomFilmFromCycle(cycleName)"
+                  >CHOISIR UN FILM AU HASARD</button>
+        <li>{{randomFilm.title}} - {{randomFilm.filmPath}}</li>
 
-
-  <button class="uk-button uk-button-default" (click)="getRandomFilmFromCycle(cycleName)">RANDOM FILM</button>
-
-<table class="uk-table">
-    <caption>{{cycleName}}</caption>
+  <table class="uk-table">
+    <caption>CYCLE: {{cycleName}}</caption>
   <thead>
     <tr>
       <th scope="col">Titre</th>
