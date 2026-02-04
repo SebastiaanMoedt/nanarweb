@@ -1,8 +1,10 @@
 
-  <button class="uk-button uk-button-default" 
+  <button type="button" class="uk-button uk-button-default" 
           (click)="getRandomFilmFromCycle(cycleName)"
                   >CHOISIR UN FILM AU HASARD</button>
-        <li>{{randomFilm.title}} - {{randomFilm.filmPath}}</li>
+                  @if(randomFilm != undefined){
+                      <li>{{randomFilm.title}} - {{randomFilm.filmPath}}</li>
+                  }
 
   <table class="uk-table">
     <caption>CYCLE: {{cycleName}}</caption>
@@ -30,13 +32,12 @@
       @else{
         <td>À TÉLÉCHARGER</td>
       }
-
     </tr>
-
 }
 @empty {
     <li>I'M EMPTY :((((</li>
 }
+
   </tbody>
 </table>
 
