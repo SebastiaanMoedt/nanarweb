@@ -54,15 +54,14 @@ getCycleSortedBySpecialInfo(name: string): Film[]{
   return sortedFilms
 }
 
-getRandomFilmFromCycle(name: string): Film{
+getRandomFilmFromCycle(name: string): void{
   let allFilms: Film[] = this.cycleDbMock.getAllFilmsInCycle(name)
   let randomFilm = allFilms[Math.floor(Math.random() * allFilms.length)];
-  while(randomFilm.filmState === FilmState.WATCHED || randomFilm.filmState === FilmState.TO_DELETE){
+  while(randomFilm.filmState === FilmState.TO_DELETE){
     randomFilm = allFilms[Math.floor(Math.random() * allFilms.length)]
   }
   console.log("RANDOM FILM: " + randomFilm.title);
   this.randomFilm = randomFilm
-  return randomFilm
 }
 
 }
