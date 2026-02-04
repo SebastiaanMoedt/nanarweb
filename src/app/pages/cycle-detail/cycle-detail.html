@@ -2,6 +2,9 @@
 <!-- POUR TRIER, PEUT ETRE UTILISER ÇA:
   <th scope="col" sortable="title" (sort)="onSort($event)">Titre</th> -->
 
+
+  <button (click)="getRandomFilmFromCycle(cycleName)">RANDOM FILM</button>
+
 <table class="uk-table">
     <caption>{{cycleName}}</caption>
   <thead>
@@ -14,7 +17,6 @@
     </tr>
   </thead>
   <tbody>
-
 
 @for(film of listeFilms; track film.year){
     <tr>

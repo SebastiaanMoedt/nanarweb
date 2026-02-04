@@ -2,6 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { Film } from '../../class/film';
 import { CyclesDbMock } from '../../mock/cycles-db-mock';
 import { ActivatedRoute, Router } from '@angular/router';
+import { FilmState } from '../../class/enum/film-state';
 
 
 
@@ -54,9 +55,13 @@ getCycleSortedBySpecialInfo(name: string): Film[]{
 
 getRandomFilmFromCycle(name: string): Film{
   let allFilms: Film[] = this.cycleDbMock.getAllFilmsInCycle(name)
-  let randomFilm = allFilms[Math.floor(Math.random() * allFilms.length)]
+  let randomFilm = allFilms[Math.floor(Math.random() * allFilms.length)];
+  while(randomFilm.filmState === FilmState.WATCHED || randomFilm.filmState === FilmState.TO_DELETE){
+    randomFilm = allFilms[Math.floor(Math.random() * allFilms.length)]
+  }
+  console.log("RANDOM FILM: " + randomFilm.title);
+  
   return randomFilm
-
 }
 
 }

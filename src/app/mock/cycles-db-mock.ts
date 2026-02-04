@@ -48,7 +48,7 @@ film3: Film = {
         filmPath: "",
         subsPath: "",
         specialInfo: "encore un autre film",
-        filmState: FilmState.TO_WATCH,
+        filmState: FilmState.WATCHED,
         cycles: [this.cycle1.cycleName, this.cycle2.cycleName]
     }    
 
