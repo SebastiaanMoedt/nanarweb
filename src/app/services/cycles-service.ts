@@ -8,10 +8,10 @@ import { FilmState } from '../class/enum/film-state';
 })
 export class CyclesService {
   // TODO: replace cycleDbMock with real database
-cycleDbMock = new CyclesDbMock
+cyclesDb = new CyclesDbMock
 
 getCycleSortedByYear(name: string): Film[]{
-  let allFilms: Film[] = this.cycleDbMock.getAllFilmsInCycle(name)
+  let allFilms: Film[] = this.cyclesDb.getAllFilmsInCycle(name)
   let sortedFilms = allFilms.sort((a, b) => {
     if (a.year < b.year) {
         return -1;
@@ -24,9 +24,16 @@ getCycleSortedByYear(name: string): Film[]{
   return sortedFilms
 }
 
+  getAllCycles(){
+    return this.cyclesDb.getAllCycles()
+  }
+
+getCycleLength(name: string): number{
+  return this.cyclesDb.getAllFilmsInCycle(name).length
+}
 
 getCycleSortedBySpecialInfo(name: string): Film[]{
-  let allFilms: Film[] = this.cycleDbMock.getAllFilmsInCycle(name)
+  let allFilms: Film[] = this.cyclesDb.getAllFilmsInCycle(name)
   let sortedFilms = allFilms.sort((a, b) => {
     if (a.specialInfo < b.specialInfo) {
         return -1;
@@ -41,7 +48,7 @@ getCycleSortedBySpecialInfo(name: string): Film[]{
 
 
   getRandomFilmFromCycle(name: string): Film{
-    let allFilms: Film[] = this.cycleDbMock.getAllFilmsInCycle(name)
+    let allFilms: Film[] = this.cyclesDb.getAllFilmsInCycle(name)
     let randomFilm = allFilms[Math.floor(Math.random() * allFilms.length)];
     while(randomFilm.filmState === FilmState.TO_DELETE){
       randomFilm = allFilms[Math.floor(Math.random() * allFilms.length)]

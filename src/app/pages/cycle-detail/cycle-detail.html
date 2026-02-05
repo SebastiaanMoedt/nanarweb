@@ -1,7 +1,7 @@
 
   <button type="button" class="uk-button uk-button-default" 
           (click)="getRandomFilmFromCycle(cycleName)"
-                  >CHOISIR UN FILM AU HASARD</button>
+                  >RANDOM FILM</button>
 
 
      
@@ -11,11 +11,11 @@
     <caption>CYCLE: {{cycleName}}</caption>
       <thead>
         <tr>
-          <th scope="col">Titre</th>
-          <th scope="col">Année</th>
-          <th scope="col">Durée</th>
-          <th scope="col">Infos Spéciales</th>
-          <th scope="col">Lien</th>
+          <th scope="col">Title</th>
+          <th scope="col">Year</th>
+          <th scope="col">Length</th>
+          <th scope="col">Special Info</th>
+          <th scope="col">Link</th>
         </tr>
       </thead>
 
@@ -24,18 +24,18 @@
   @if(randomFilm != undefined)
   {
           <tr>
-            <td>RANDOM FILM <br> {{randomFilm.title}}</td>
+            <td>RANDOM FILM<br> {{randomFilm.title}}</td>
             <td>{{randomFilm.year}}</td>
             <td>{{randomFilm.length}}</td>
             <td>{{randomFilm.specialInfo}}</td>
             @if(randomFilm.filmPath != "")
             {
-            <td>{{randomFilm.filmPath}}<br>
-              {{randomFilm.subsPath}}</td>
+            <td><a> {{randomFilm.filmPath}} </a><br>
+             <a> {{randomFilm.subsPath}}</a></td>
             }
             @else
             {
-              <td>À TROUVER</td>
+              <td>TO FIND</td>
             }   
       }   
 <!-- BOUCLE QUI AFFICHE LES FILMS -->
@@ -49,12 +49,12 @@
       <td>{{film.specialInfo}}</td>
       @if(film.filmPath != "")
       {
-      <td>{{film.filmPath}} - <br>
-        {{film.subsPath}}</td>
+      <td><a> {{film.filmPath}}</a><br>
+        <a>{{film.subsPath}}</a></td>
       }
       @else
       {
-        <td>À TROUVER</td>
+        <td>TO FIND</td>
       }
 
     </tr>

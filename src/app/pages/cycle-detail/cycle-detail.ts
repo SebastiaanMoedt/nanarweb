@@ -1,22 +1,20 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { Film } from '../../class/film';
-import { CyclesDbMock } from '../../mock/cycles-db-mock';
-import { ActivatedRoute, Router } from '@angular/router';
-import { FilmState } from '../../class/enum/film-state';
+import { ActivatedRoute } from '@angular/router';
 import { CyclesService } from '../../services/cycles-service';
+import { CycleAdd } from "../cycle-add/cycle-add";
 
 
 
 @Component({
   selector: 'app-cycle-detail',
-  imports: [],
+  imports: [CycleAdd],
   templateUrl: './cycle-detail.html',
   styleUrl: './cycle-detail.css',
 })
 
 export class CycleDetail implements OnInit{
   cyclesService = new CyclesService
-  private router = inject(Router);
   private route = inject(ActivatedRoute);
   cycleName = this.route.snapshot.params['cycleName'];
   listeFilms!: Film[]
