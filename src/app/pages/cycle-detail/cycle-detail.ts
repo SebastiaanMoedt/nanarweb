@@ -60,7 +60,6 @@ getRandomFilmFromCycle(name: string): void{
   while(randomFilm.filmState === FilmState.TO_DELETE){
     randomFilm = allFilms[Math.floor(Math.random() * allFilms.length)]
   }
-  console.log("RANDOM FILM: " + randomFilm.title);
   this.randomFilm = randomFilm
 }
 

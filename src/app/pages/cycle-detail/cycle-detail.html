@@ -2,9 +2,6 @@
   <button type="button" class="uk-button uk-button-default" 
           (click)="getRandomFilmFromCycle(cycleName)"
                   >CHOISIR UN FILM AU HASARD</button>
-                  @if(randomFilm != undefined){
-                      <li>{{randomFilm.title}} - {{randomFilm.filmPath}}</li>
-                  }
 
   <table class="uk-table">
     <caption>CYCLE: {{cycleName}}</caption>
@@ -18,8 +15,24 @@
     </tr>
   </thead>
   <tbody>
+  @if(randomFilm != undefined)
+  {
+    <tr>
+      <th scope="row">RANDOM FILM: {{randomFilm.title}}</th>
+      <td>{{randomFilm.year}}</td>
+      <td>{{randomFilm.length}}</td>
+      <td>{{randomFilm.specialInfo}}</td>
+      @if(randomFilm.filmPath != ""){
+      <td>{{randomFilm.filmPath}} - <br>
+        {{randomFilm.subsPath}}</td>
+      }
+      @else{
+        <td>À TROUVER</td>
+      }
+  }
 
-@for(film of listeFilms; track film.year){
+@for(film of listeFilms; track film.year)
+  {
     <tr>
       <th scope="row">{{film.title}}</th>
       <td>{{film.year}}</td>
@@ -32,11 +45,13 @@
       @else{
         <td>À TÉLÉCHARGER</td>
       }
+
     </tr>
-}
-@empty {
+  }
+@empty
+  {
     <li>I'M EMPTY :((((</li>
-}
+  }
 
   </tbody>
 </table>
