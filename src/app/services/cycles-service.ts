@@ -7,7 +7,8 @@ import { FilmState } from '../class/enum/film-state';
   providedIn: 'root',
 })
 export class CyclesService {
-  // TODO: replace cycleDbMock with real database
+  // TODO: replace cycleDbMock with real database access 
+  // (probably with some sort of http request?)
 cyclesDb = new CyclesDbMock
 
 getCycleSortedByYear(name: string): Film[]{
