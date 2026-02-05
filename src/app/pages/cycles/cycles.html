@@ -4,6 +4,16 @@
     <ul>
     <li><a (click)="navigateToCycleDetail(cycle.cycleName)"> {{cycle.cycleName}} - {{cycle.description}}</a></li>
 </ul>
+
+    <tr>
+      <td><a (click)="navigateToCycleDetail(cycle.cycleName)"> {{cycle.cycleName}}</a></td>
+      <td>{{cycle.description}}</td>
+      <td>{{cycle.status}}</td>
+      <!-- TODO: get cycle length -->
+      <td>CYCLE LENGTH</td>
+
+    </tr>
+
 }
 @empty {
     <li>PAS DE CYCLES POUR L'INSTANT</li>

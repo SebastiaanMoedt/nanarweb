@@ -3,7 +3,7 @@ import { Film } from "./film";
 
 export class Cycle {
     cycleName!: string
-    status!: CycleState
+    status: CycleState = CycleState.TO_FILL
     description!: string
     films!: Film[]
 }
