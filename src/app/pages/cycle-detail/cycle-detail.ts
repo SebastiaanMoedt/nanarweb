@@ -3,6 +3,7 @@ import { Film } from '../../class/film';
 import { CyclesDbMock } from '../../mock/cycles-db-mock';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FilmState } from '../../class/enum/film-state';
+import { CyclesService } from '../../services/cycles-service';
 
 
 
@@ -14,7 +15,7 @@ import { FilmState } from '../../class/enum/film-state';
 })
 
 export class CycleDetail implements OnInit{
-  cycleDbMock: CyclesDbMock = new CyclesDbMock
+  cyclesService = new CyclesService
   private router = inject(Router);
   private route = inject(ActivatedRoute);
   cycleName = this.route.snapshot.params['cycleName'];
@@ -26,41 +27,16 @@ ngOnInit(): void {
 }
 
 getCycleSortedByYear(name: string): Film[]{
-  let allFilms: Film[] = this.cycleDbMock.getAllFilmsInCycle(name)
-  let sortedFilms = allFilms.sort((a, b) => {
-    if (a.year < b.year) {
-        return -1;
-    }
-    if (a.year > b.year) {
-        return 1;
-    }
-    return 0;
-  });
-  return sortedFilms
+  return this.cyclesService.getCycleSortedByYear(name)
 }
 
 
 getCycleSortedBySpecialInfo(name: string): Film[]{
-  let allFilms: Film[] = this.cycleDbMock.getAllFilmsInCycle(name)
-  let sortedFilms = allFilms.sort((a, b) => {
-    if (a.specialInfo < b.specialInfo) {
-        return -1;
-    }
-    if (a.specialInfo > b.specialInfo) {
-        return 1;
-    }
-    return 0;
-  });
-  return sortedFilms
+  return this.cyclesService.getCycleSortedBySpecialInfo(name)
 }
 
 getRandomFilmFromCycle(name: string): void{
-  let allFilms: Film[] = this.cycleDbMock.getAllFilmsInCycle(name)
-  let randomFilm = allFilms[Math.floor(Math.random() * allFilms.length)];
-  while(randomFilm.filmState === FilmState.TO_DELETE){
-    randomFilm = allFilms[Math.floor(Math.random() * allFilms.length)]
-  }
-  this.randomFilm = randomFilm
+    this.randomFilm = this.cyclesService.getRandomFilmFromCycle(name)
 }
 
 }

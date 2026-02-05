@@ -1,8 +1,51 @@
 import { Injectable } from '@angular/core';
+import { Film } from '../class/film';
+import { CyclesDbMock } from '../mock/cycles-db-mock';
+import { FilmState } from '../class/enum/film-state';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CyclesService {
-  
+  // TODO: replace cycleDbMock with real database
+cycleDbMock = new CyclesDbMock
+
+getCycleSortedByYear(name: string): Film[]{
+  let allFilms: Film[] = this.cycleDbMock.getAllFilmsInCycle(name)
+  let sortedFilms = allFilms.sort((a, b) => {
+    if (a.year < b.year) {
+        return -1;
+    }
+    if (a.year > b.year) {
+        return 1;
+    }
+    return 0;
+  });
+  return sortedFilms
+}
+
+
+getCycleSortedBySpecialInfo(name: string): Film[]{
+  let allFilms: Film[] = this.cycleDbMock.getAllFilmsInCycle(name)
+  let sortedFilms = allFilms.sort((a, b) => {
+    if (a.specialInfo < b.specialInfo) {
+        return -1;
+    }
+    if (a.specialInfo > b.specialInfo) {
+        return 1;
+    }
+    return 0;
+  });
+  return sortedFilms
+}
+
+
+  getRandomFilmFromCycle(name: string): Film{
+    let allFilms: Film[] = this.cycleDbMock.getAllFilmsInCycle(name)
+    let randomFilm = allFilms[Math.floor(Math.random() * allFilms.length)];
+    while(randomFilm.filmState === FilmState.TO_DELETE){
+      randomFilm = allFilms[Math.floor(Math.random() * allFilms.length)]
+    }
+    return randomFilm
+  }
 }
