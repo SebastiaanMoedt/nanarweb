@@ -3,24 +3,28 @@
           (click)="getRandomFilmFromCycle(cycleName)"
                   >CHOISIR UN FILM AU HASARD</button>
 
-<!-- AFFICHE FILM AU HASARD -->
+
+     
+      
+<!-- TITRE TABLEAU FILMS -->
+  <table class="uk-table">
+    <caption>CYCLE: {{cycleName}}</caption>
+      <thead>
+        <tr>
+          <th scope="col">Titre</th>
+          <th scope="col">Année</th>
+          <th scope="col">Durée</th>
+          <th scope="col">Infos Spéciales</th>
+          <th scope="col">Lien</th>
+        </tr>
+      </thead>
+
+  <tbody>
+ <!-- AFFICHE FILM AU HASARD -->
   @if(randomFilm != undefined)
   {
-    <table class="uk-table"></table>
-
-      <caption>RANDOM FILM</caption>
-        <thead>
           <tr>
-            <th scope="col">Titre</th>
-            <th scope="col">Année</th>
-            <th scope="col">Durée</th>
-            <th scope="col">Infos Spéciales</th>
-            <th scope="col">Lien</th>
-          </tr>
-        </thead>
-       <tbody>
-          <tr>
-            <td>{{randomFilm.title}}</td>
+            <td>RANDOM FILM <br> {{randomFilm.title}}</td>
             <td>{{randomFilm.year}}</td>
             <td>{{randomFilm.length}}</td>
             <td>{{randomFilm.specialInfo}}</td>
@@ -32,25 +36,8 @@
             @else
             {
               <td>À TROUVER</td>
-            }    
-      }
-     
-      
-<!-- TITRE TABLEAU FILMS -->
-  <table class="uk-table">
-    <caption>CYCLE: {{cycleName}}</caption>
-  <thead>
-    <tr>
-      <th scope="col">Titre</th>
-      <th scope="col">Année</th>
-      <th scope="col">Durée</th>
-      <th scope="col">Infos Spéciales</th>
-      <th scope="col">Lien</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    
+            }   
+      }   
 <!-- BOUCLE QUI AFFICHE LES FILMS -->
 @for(film of listeFilms; track film.year)
   {
