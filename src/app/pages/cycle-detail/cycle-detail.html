@@ -3,6 +3,40 @@
           (click)="getRandomFilmFromCycle(cycleName)"
                   >CHOISIR UN FILM AU HASARD</button>
 
+<!-- AFFICHE FILM AU HASARD -->
+  @if(randomFilm != undefined)
+  {
+    <table class="uk-table"></table>
+
+      <caption>RANDOM FILM</caption>
+        <thead>
+          <tr>
+            <th scope="col">Titre</th>
+            <th scope="col">Année</th>
+            <th scope="col">Durée</th>
+            <th scope="col">Infos Spéciales</th>
+            <th scope="col">Lien</th>
+          </tr>
+        </thead>
+       <tbody>
+          <tr>
+            <td>{{randomFilm.title}}</td>
+            <td>{{randomFilm.year}}</td>
+            <td>{{randomFilm.length}}</td>
+            <td>{{randomFilm.specialInfo}}</td>
+            @if(randomFilm.filmPath != "")
+            {
+            <td>{{randomFilm.filmPath}}<br>
+              {{randomFilm.subsPath}}</td>
+            }
+            @else
+            {
+              <td>À TROUVER</td>
+            }    
+      }
+     
+      
+<!-- TITRE TABLEAU FILMS -->
   <table class="uk-table">
     <caption>CYCLE: {{cycleName}}</caption>
   <thead>
@@ -14,35 +48,25 @@
       <th scope="col">Lien</th>
     </tr>
   </thead>
-  <tbody>
-  @if(randomFilm != undefined)
-  {
-    <tr>
-      <th scope="row">RANDOM FILM: {{randomFilm.title}}</th>
-      <td>{{randomFilm.year}}</td>
-      <td>{{randomFilm.length}}</td>
-      <td>{{randomFilm.specialInfo}}</td>
-      @if(randomFilm.filmPath != ""){
-      <td>{{randomFilm.filmPath}} - <br>
-        {{randomFilm.subsPath}}</td>
-      }
-      @else{
-        <td>À TROUVER</td>
-      }
-  }
 
+  <tbody>
+    
+<!-- BOUCLE QUI AFFICHE LES FILMS -->
 @for(film of listeFilms; track film.year)
   {
+    
     <tr>
-      <th scope="row">{{film.title}}</th>
+      <td>{{film.title}}</td>
       <td>{{film.year}}</td>
       <td>{{film.length}}</td>
       <td>{{film.specialInfo}}</td>
-      @if(film.filmPath != ""){
+      @if(film.filmPath != "")
+      {
       <td>{{film.filmPath}} - <br>
         {{film.subsPath}}</td>
       }
-      @else{
+      @else
+      {
         <td>À TÉLÉCHARGER</td>
       }
 
@@ -52,7 +76,6 @@
   {
     <li>I'M EMPTY :((((</li>
   }
-
   </tbody>
 </table>
 
