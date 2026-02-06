@@ -1,5 +1,5 @@
 
-  <table>
+  <table class="table table-striped">
     <caption>CYCLES</caption>
       <thead>
         <tr>
@@ -7,7 +7,7 @@
           <th scope="col">DESCRIPTION</th>
           <th scope="col">AMOUNT OF MOVIES</th>
           <th scope="col">CYCLE STATE</th>
-                  </tr>
+        </tr>
       </thead>
 @for(cycle of getAllCycles(); track cycle.cycleName){
       <tbody>
@@ -22,3 +22,4 @@
 @empty {
     <li>PAS DE CYCLES POUR L'INSTANT</li>
 }
+</table>
