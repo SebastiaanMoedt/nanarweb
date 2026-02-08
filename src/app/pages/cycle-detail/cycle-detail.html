@@ -4,13 +4,12 @@
                   >RANDOM FILM</button>
 
 
-     
-      
-<!-- TITRE TABLEAU FILMS -->
+<!-- TITRE TABLEAU FILMS >> à rajouter: bouton qui incremente le cycleIndex de 1 quand on a regardé un film-->
   <table class="table table-striped">
     <caption>CYCLE: {{cycleName}}</caption>
       <thead>
         <tr>
+          <th scope="col">Next Movie</th>
           <th scope="col">Title</th>
           <th scope="col">Year</th>
           <th scope="col">Length</th>
@@ -20,49 +19,46 @@
       </thead>
 
   <tbody>
- <!-- AFFICHE FILM AU HASARD -->
   @if(randomFilm != undefined)
   {
-          <tr>
-            <td>RANDOM FILM<br> {{randomFilm.title}}</td>
-            <td>{{randomFilm.year}}</td>
-            <td>{{randomFilm.length}}</td>
-            <td>{{randomFilm.specialInfo}}</td>
-            @if(randomFilm.filmPath != "")
-            {
-            <td><a> {{randomFilm.filmPath}} </a><br>
-             <a> {{randomFilm.subsPath}}</a></td>
-            }
-            @else
-            {
-              <td>TO FIND</td>
-            }   
-      }   
-<!-- BOUCLE QUI AFFICHE LES FILMS -->
-@for(film of listeFilms; track film.year)
-  {
-    
     <tr>
-      <td>{{film.title}}</td>
-      <td>{{film.year}}</td>
-      <td>{{film.length}}</td>
-      <td>{{film.specialInfo}}</td>
-      @if(film.filmPath != "")
-      {
-      <td><a> {{film.filmPath}}</a><br>
-        <a>{{film.subsPath}}</a></td>
-      }
-      @else
-      {
-        <td>TO FIND</td>
-      }
-
+      <td>RANDOM FILM</td>
+      <td>{{randomFilm.title}}</td>
+      <td>{{randomFilm.year}}</td>
+      <td>{{randomFilm.length}}</td>
+      <td>{{randomFilm.specialInfo}}</td>
+    @if(randomFilm.filmPath != "")
+    {
+      <td><a> {{randomFilm.filmPath}} </a><br>
+      <a> {{randomFilm.subsPath}}</a></td>
+    }
+    @else
+    {
+      <td>TO FIND</td>
+    }
     </tr>
   }
-@empty
-  {
-    <li>I'M EMPTY :((((</li>
+
+  @for(film of listeFilms; track film.year; let idx = $index, e = $even){
+      <tr>
+        @if(idx == cycleIndex){
+          <td>{{idx}}--{{cycleIndex}}</td>
+        }
+        @else{
+          <td>{{idx}}--{{cycleIndex}}--notfound</td>
+        }
+        <td>{{film.title}}</td>
+        <td>{{film.year}}</td>
+        <td>{{film.length}}</td>
+        <td>{{film.specialInfo}}</td>
+        @if(film.filmPath != ""){
+        <td><a>{{film.filmPath}}</a><br>
+          <a>{{film.subsPath}}</a></td>
+        }
+        @else{
+          <td>TO FIND</td>
+        }
+      </tr>
   }
   </tbody>
 </table>
-

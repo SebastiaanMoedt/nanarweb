@@ -19,15 +19,20 @@ export class CycleDetail implements OnInit{
   cycleName = this.route.snapshot.params['cycleName'];
   listeFilms!: Film[]
   randomFilm!: Film
+  cycleIndex!: number
 
 ngOnInit(): void {
     this.listeFilms = this.getCycleSortedByYear(this.cycleName);
+    this.cycleIndex = this.getCycleIndex(this.cycleName)
 }
 
 getCycleSortedByYear(name: string): Film[]{
   return this.cyclesService.getCycleSortedByYear(name)
 }
 
+getCycleIndex(name: string): number {
+  return this.cyclesService.getCycleIndex(name)
+}
 
 getCycleSortedBySpecialInfo(name: string): Film[]{
   return this.cyclesService.getCycleSortedBySpecialInfo(name)

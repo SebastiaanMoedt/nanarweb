@@ -26,12 +26,27 @@ getCycleSortedByYear(name: string): Film[]{
   return sortedFilms
 }
 
-  getAllCycles(){
+getAllCycles(){
     return this.cyclesDb.getAllCycles()
   }
 
 getCycleLength(name: string): number{
   return this.cyclesDb.getAllFilmsInCycle(name).length
+}
+
+
+getCycleIndex(name: string): number{
+  const cycles = this.cyclesDb.getAllCycles()
+  cycles.forEach(cycle => {
+    console.log("CYCLE NAME: " + cycle.cycleName);
+    console.log("NAME: " + name);
+    console.log("INDEX: " + cycle.currentIndex);
+    if(cycle.cycleName == name){
+      return cycle.currentIndex
+    }
+    return 0
+  });
+  return 0
 }
 
 getCycleSortedBySpecialInfo(name: string): Film[]{

@@ -5,5 +5,6 @@ export class Cycle {
     cycleName!: string
     status: CycleState = CycleState.TO_FILL
     description!: string
+    currentIndex!: number
     films!: Film[]
 }

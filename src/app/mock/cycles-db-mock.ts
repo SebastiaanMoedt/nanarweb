@@ -12,11 +12,14 @@ cycle1: Cycle = {
       cycleName: "test",
       description: "wow un cycle",
       status: CycleState.READY,
-      films: []}
+      currentIndex: 0,
+      films: []
+    }
 cycle2: Cycle = {
         cycleName: "test2",
         description: "wow un autre cycle",
         status: CycleState.READY,
+        currentIndex: 1,
         films: []}
   
 cycles: Cycle[] = [this.cycle1, this.cycle2]
