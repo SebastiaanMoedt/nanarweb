@@ -34,6 +34,15 @@ getCycleIndex(name: string): number {
   return this.cyclesService.getCycleIndex(name)
 }
 
+decrementCycleIndex(name: string):void{
+  this.cycleIndex = this.cyclesService.incrementCycleIndex(name)
+}
+
+
+incrementCycleIndex(name: string):void{
+  this.cycleIndex = this.cyclesService.incrementCycleIndex(name)
+}
+
 getCycleSortedBySpecialInfo(name: string): Film[]{
   return this.cyclesService.getCycleSortedBySpecialInfo(name)
 }

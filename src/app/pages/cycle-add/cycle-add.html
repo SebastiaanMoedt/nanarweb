@@ -1,14 +1,14 @@
 
 <form action="importCycle" method="post">
     <!-- TODO: connect this to a script somewhere -->
-    <div><label for="cycleName">Cycle Name</label></div>
+    <div><label for="cycleName">Nom du Cycle</label></div>
     <div><input type="text" id="cycleName" name="cycleName"/></div>
 
-    <div><label for="cycleDescription">What is it about?</label></div>
+    <div><label for="cycleDescription">Description</label></div>
     <div><input type="textarea" id="cycleDescription" name="cycleDescription"/></div>
 
-    <div><label for="import">Import CSV File</label></div>
+    <div><label for="import">Importer fichier .csv</label></div>
     <div><input type="file" id="import" name="cyclecsv" accept="csv"/></div>
-    <div><label for="import">(make sure the columns are: year / title / length / special info)</label></div>
+    <div><label for="import">(les colonnes, dans l'ordre: year / title / length / special info)</label></div>
     <div><input id="submit" type="submit" value="Upload"></div>
 </form>

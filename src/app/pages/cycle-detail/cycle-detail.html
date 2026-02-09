@@ -1,20 +1,22 @@
 
   <button type="button"
           (click)="getRandomFilmFromCycle(cycleName)"
-                  >RANDOM FILM</button>
-
+                  >FILM ALEATOIRE</button>
+  <button type="button"
+          (click)="incrementCycleIndex(cycleName)"
+                  >AVANCER CYCLE D'UN FILM</button>
 
 <!-- TITRE TABLEAU FILMS >> à rajouter: bouton qui incremente le cycleIndex de 1 quand on a regardé un film-->
   <table class="table table-striped">
     <caption>CYCLE: {{cycleName}}</caption>
       <thead>
         <tr>
-          <th scope="col">Next Movie</th>
-          <th scope="col">Title</th>
-          <th scope="col">Year</th>
-          <th scope="col">Length</th>
-          <th scope="col">Special Info</th>
-          <th scope="col">Link</th>
+          <th scope="col">Prochain Film</th>
+          <th scope="col">Titre</th>
+          <th scope="col">Année</th>
+          <th scope="col">Durée</th>
+          <th scope="col">Infos supplementaires</th>
+          <th scope="col">Lien</th>
         </tr>
       </thead>
 
@@ -22,7 +24,7 @@
   @if(randomFilm != undefined)
   {
     <tr>
-      <td>RANDOM FILM</td>
+      <td>FILM ALEATOIRE</td>
       <td>{{randomFilm.title}}</td>
       <td>{{randomFilm.year}}</td>
       <td>{{randomFilm.length}}</td>
@@ -34,18 +36,21 @@
     }
     @else
     {
-      <td>TO FIND</td>
+      <td>A TROUVER</td>
     }
     </tr>
   }
 
-  @for(film of listeFilms; track film.year; let idx = $index, e = $even){
+  @for(film of listeFilms; track film.year; let idx = $index){
       <tr>
+        @if(idx < cycleIndex){
+          <td>VU</td>
+        }
         @if(idx == cycleIndex){
-          <td>{{idx}}--{{cycleIndex}}</td>
+          <td>PROCHAIN FILM</td>
         }
         @else{
-          <td>{{idx}}--{{cycleIndex}}--notfound</td>
+          <td>--</td>
         }
         <td>{{film.title}}</td>
         <td>{{film.year}}</td>
@@ -56,7 +61,7 @@
           <a>{{film.subsPath}}</a></td>
         }
         @else{
-          <td>TO FIND</td>
+          <td>A TROUVER</td>
         }
       </tr>
   }
