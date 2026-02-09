@@ -20,7 +20,7 @@ ngOnInit(): void {
       "GIANT EXPLOSIOOON",
       "MOUSTACHE!",
       "CABRIOLES!",
-      "Maine",
+      "Maine!",
       "BOOOOBS",
       "Jeffrey, is that you?",
       "Flashback du film dans le film!",
@@ -28,13 +28,14 @@ ngOnInit(): void {
       "We rate papier peint",
       "Il a dit le titre du film!",
       "Ça va bien se passer",
-      "[personnage vomit] > Petite pensée pour Emmanuelle",
-      "(OMINOUS MUSIC)",
+      "[personnage vomit] - Petite pensée pour Emmanuelle",
+      "[OMINOUS MUSIC]",
       "J'avais pas besoin de dormir cette nuit.",
       "Chaque jour est une aventure.",
       "Le refrigerateur de la semaine est attribué à ...",
       "MARTHAAA",
-      "Je sais pas ou on va, mais on y va."
+      "Je sais pas ou on va, mais on y va.",
+      "SYMBOLIQUE!"
     ]
 
     return quotes[Math.floor(Math.random() * quotes.length)];
