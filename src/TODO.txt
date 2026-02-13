@@ -1,6 +1,9 @@
 SETUP DATABASE ON PI
 https://hackernoon.com/setting-up-a-dedicated-database-server-on-raspberry-pi
 
+BOOTSTRAP
+https://www.ganatan.com/en/tutorials/bootstrap-with-angular
+
 CREATE SERVICES
 (& deport all functional stuff to it)
 
@@ -11,3 +14,5 @@ DEPLOY WEBSITE TO PI
 
 CREATE SEPARATE APP FOR THE BACKEND???
 
+DBDIAGRAM
+https://dbdiagram.io/d/CYCLESDB-v1-69863785bd82f5fce2ecfe5a
