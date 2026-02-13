@@ -1,1 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: 'Lexend';
+    src: url(assets/fonts/Lexend-Regular.ttf);
+}
+
+body {
+    background-color: #8f46d3;
+    font-family: Verdana, sans-serif;
+    min-height: 100vh;
+}
+
+header{
+    background: #8f46d3;
+}
+
+h1{
+    text-align: center;
+}
+
+h2{
+    display:inline-block;
+    transition:transform 3s ease-in-out;
+    background: transparent;
+    &:hover{
+        transform: rotatez(1735deg) rotateY(360deg);
+        background: orangered;
+        background: linear-gradient(90deg,
+        rgb(255, 196, 0) 0%,
+        rgb(0, 255, 61) 100%);
+    }
+}

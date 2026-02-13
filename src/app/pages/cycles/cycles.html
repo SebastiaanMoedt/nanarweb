@@ -1,25 +1,24 @@
 
-  <table class="table table-striped">
+  <table class="table table-dark table-striped">
     <caption>CYCLES</caption>
       <thead>
         <tr>
+          <th scope="col">---</th>
           <th scope="col">NOM</th>
           <th scope="col">DESCRIPTION</th>
           <th scope="col">NOMBRE DE FILMS</th>
           <th scope="col">ETAT</th>
         </tr>
       </thead>
+    <tbody>
 @for(cycle of getAllCycles(); track cycle.cycleName){
-      <tbody>
     <tr>
-      <td><a (click)="navigateToCycleDetail(cycle.cycleName)"> {{cycle.cycleName}}</a></td>
+      <td><img src={{randomImg()}} alt="gif"></td>
+      <td><button (click)="navigateToCycleDetail(cycle.cycleName)">{{cycle.cycleName}}</button></td>
       <td>{{cycle.description}}</td>
       <td>{{getCycleLength(cycle.cycleName)}}</td>
       <td>{{getCycleState(cycle.status)}}</td>
     </tr>
+}
     </tbody>
-}
-@empty {
-    <li>PAS DE CYCLES POUR L'INSTANT</li>
-}
 </table>
