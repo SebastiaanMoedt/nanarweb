@@ -1,4 +1,3 @@
-import { CyclesDbMock } from '../../mock/cycles-db-mock';
 import { Router } from '@angular/router';
 import { CycleDetail } from '../cycle-detail/cycle-detail';
 import { Component, inject } from '@angular/core';
@@ -15,7 +14,7 @@ import { CycleState } from '../../class/enum/cycle-state';
 export class Cycles {
   cycleDetail = new CycleDetail()
   cyclesServices = new CyclesService()
-  private router = inject(Router);
+  private router = inject(Router)
   gifs = [
     'gifs/bride1.gif',
     'gifs/dancing1.gif',

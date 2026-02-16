@@ -8,7 +8,6 @@ import { CycleAdd } from "../cycle-add/cycle-add";
 
 @Component({
   selector: 'app-cycle-detail',
-  imports: [CycleAdd],
   templateUrl: './cycle-detail.html',
   styleUrl: './cycle-detail.css',
 })
@@ -32,15 +31,6 @@ getCycleSortedByYear(name: string): Film[]{
 
 getCycleIndex(name: string): number {
   return this.cyclesService.getCycleIndex(name)
-}
-
-decrementCycleIndex(name: string):void{
-  this.cycleIndex = this.cyclesService.incrementCycleIndex(name)
-}
-
-
-incrementCycleIndex(name: string):void{
-  this.cycleIndex = this.cyclesService.incrementCycleIndex(name)
 }
 
 getCycleSortedBySpecialInfo(name: string): Film[]{
