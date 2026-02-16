@@ -1,8 +1,9 @@
 import { Cycle } from "./cycle"
 import { Film } from "./film"
 
-export class MoviesInCycle {
+export class FilmCycle {
         films!: Film[]
         cycle!: Cycle
         filmSeen: boolean = false
+
 }

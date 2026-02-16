@@ -9,6 +9,5 @@ export class Film {
     subsPath!: string
     specialInfo!: string
     filmState: FilmState = FilmState.TO_WATCH
-    cycles!: string[]
 }
 
