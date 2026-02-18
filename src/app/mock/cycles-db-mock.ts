@@ -8,23 +8,26 @@ import { FilmState } from '../class/enum/film-state';
   providedIn: 'root',
 })
 export class CyclesDbMock {
-cycle1: Cycle = {
+cycle1: Cycle = 
+    {
       cycleName: "test",
       description: "wow un cycle",
       status: CycleState.READY,
-      currentIndex: 0,
-      films: []
+      films: [],
+      seenInCycle: []
     }
-cycle2: Cycle = {
+cycle2: Cycle = 
+      {
         cycleName: "test2",
         description: "wow un autre cycle",
         status: CycleState.READY,
-        currentIndex: 1,
-        films: []}
-  
+        films: [],
+        seenInCycle: []
+      }
 cycles: Cycle[] = [this.cycle1, this.cycle2]
 
 film1: Film = {
+        id: 1,
         title: "Film1",
         year: 2020,
         length: 100,
@@ -32,9 +35,10 @@ film1: Film = {
         subsPath: "",
         specialInfo: "c'est un film",
         filmState: FilmState.TO_WATCH,
-        cycles: [this.cycle1.cycleName, this.cycle2.cycleName]
+        cycles: [this.cycle1, this.cycle2]
     }
 film2: Film = {
+        id: 2,
         title: "Film2",
         year: 2021,
         length: 102,
@@ -42,9 +46,10 @@ film2: Film = {
         subsPath: "et là pour les soustitres",
         specialInfo: "c'est un autre film",
         filmState: FilmState.TO_WATCH,
-        cycles: [this.cycle2.cycleName]
+        cycles: [this.cycle2]
     }
 film3: Film = {
+        id: 3,
         title: "Film3",
         year: 2020,
         length: 101,
@@ -52,22 +57,26 @@ film3: Film = {
         subsPath: "",
         specialInfo: "encore un autre film",
         filmState: FilmState.WATCHED,
-        cycles: [this.cycle1.cycleName, this.cycle2.cycleName]
+        cycles: [this.cycle1, this.cycle2]
     }    
 
 films = [this.film1, this.film2, this.film3]
 
 getAllFilmsInCycle(cycleName: string): Array<Film>{
     let filmsInCycle: Film[] = []
-    this.films.forEach(film => {
-      if(film.cycles.includes(cycleName)){
-        filmsInCycle.push(film)
-      }
-      })
+    this.films.forEach(film => 
+      {
+      film.cycles.forEach(
+        cycle => {
+          if (cycle.cycleName === cycleName){
+            filmsInCycle.push(film)
+          }
+        }
+      )
       console.log(filmsInCycle);
-      
+      })
     return filmsInCycle
-  }
+    }
 
 getAllCycles(){
   return this.cycles

@@ -17,6 +17,7 @@ export class CycleDetail implements OnInit{
   private route = inject(ActivatedRoute);
   cycleName = this.route.snapshot.params['cycleName'];
   listeFilms!: Film[]
+  seen!: Boolean[]
   randomFilm!: Film
   cycleIndex!: number
 

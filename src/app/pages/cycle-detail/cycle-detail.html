@@ -20,17 +20,22 @@
       <td>FILM ALEATOIRE</td>
       <td>{{randomFilm.title}}</td>
       <td>{{randomFilm.year}}</td>
-      <td>{{randomFilm.length}}</td>
+      @if(randomFilm.length != 1000){
+        <td>-N/A-</td>
+      }
+      @else{
+        <td>{{randomFilm.length}}</td>
+      }
       <td>{{randomFilm.specialInfo}}</td>
-    @if(randomFilm.filmPath != "")
-    {
-      <td><a> {{randomFilm.filmPath}} </a><br>
-      <a> {{randomFilm.subsPath}}</a></td>
-    }
-    @else
-    {
-      <td>A TROUVER</td>
-    }
+      @if(randomFilm.filmPath != "")
+      {
+        <td><a>{{randomFilm.filmPath}}</a><br>
+        <a>{{randomFilm.subsPath}}</a></td>
+      }
+      @else
+      {
+        <td>A TROUVER</td>
+      }
     </tr>
   }
 

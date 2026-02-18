@@ -4,6 +4,5 @@ import { Film } from "./film"
 export class FilmCycle {
         films!: Film[]
         cycle!: Cycle
-        filmSeen: boolean = false
 
 }
